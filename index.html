@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="index.css">
+    <!--2Incluir VueJS-->
+    <script src="https://unpkg.com/vue@3"></script>
+    <!--Incluí Bootstrap nomas para que se vea bonito-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+    <title>VueJS2</title>
+
+</head>
+<style>
+    .layout {
+        display: flex;
+        gap: 16px;
+
+        align-items: center;
+    }
+</style>
+<section class="layout">
+    <div>
+
+        <body>
+            <!--3Construir elementos con HTML-->
+            <div id="Nombre">
+                <h1>Lugares para hacer turismo en CDMX</h1>
+                <h3>Traido a ustedes por: {{ information.name }}</h1>
+            </div>
+
+            <div class="list-group">
+                <div id="Pasatiempos">
+                    <!--V-for-->
+                    <ul v-for="word of words">
+                        <a href="#" class="list-group-item list-group-item-action">{{word}}</a>
+                    </ul>
+                </div>
+            </div>
+
+    </div>
+    <div>
+        <div id="Imagen">
+            <div class="card" style="width: 18rem;">
+                <img v-bind:src="picsumImage" class="img-thumbnail" alt="Cinque Terre" />
+                <div class="card-body">
+                    <h5 class="card-title">Angel de la Independencia</h5>
+                    <p class="card-text">Un Lugar emblematico de la CDMX</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div>
+        <!--Aqui se encuentra V-if y también el v-on:Click -->
+        <div id="ContadorCool">
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                    <a class="btn btn-primary" @click="counter++">Haz click para aumentar el contador y descubrir un
+                        sitio sorprresa muy cerca de la ciudad</a>
+                    <p>5 es el numero mágico has clickeado {{ counter }} veces.</p>
+                    <h1 v-if="counter >= 5">
+                        Teotihuacan
+                        Piramides a solo 30 min de la ciudad
+                    </h1>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <div>
+        <!--User Input (v-model)-->
+        <div id="Alerts">
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">Ingresa tu nombre</h5>
+                    <p>Esta información es para ti </p>
+                    <p>{{ message }}</p>
+                    <input v-model="message" placeholder="Escribe aqui" />
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+</body>
+<!--4Crear un JAVASCRIPT-->
+<script src="code.js"></script>
+
+
+</html>
